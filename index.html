@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Já</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+<body>
+    
+
+
+<header style="position: fixed; top: 0; width: 100%; background-color: #ffffff; z-index: 100;">
+    <div class="container">
+      <div class="logo">
+        <img src="logo.png" alt="Logo reserva ja" />
+      </div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Onde você quer ir?" />
+        <button><img class="lupa" src="image-removebg-preview.png" alt=""></button>
+      </div>
+      
+      <div class="actions">
+        <button onclick="window.location.href='login.html'">Entrar</button>
+        <button onclick="window.location.href='signup.html'">Cadastrar-se</button>
+        <button onclick="window.location.href='host.html'">Anuncie seu Espaço</button>
+      </div>
+    </div>
+  </header>
+  <section class="results">
+    <div class="result-item">
+      <div class="carousel-container">
+        <!-- Botão de navegação anterior -->
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        
+        <!-- Carrossel de imagens -->
+        <div class="carousel">
+          <img src="img/casa-salvador.jpg" alt="Imóvel 1" />
+          <img src="img/ap-rj.jpg" alt="Imóvel 2" />
+          <img src="img/chacara-mg.jpg" alt="Imóvel 3" />
+          <img src="img/kitnet-curitiba.jpg" alt="Imóvel 4" />
+          <!-- Adicione mais imagens conforme necessário -->
+        </div>
+        
+        <!-- Botão de navegação posterior -->
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+      A
+      <h3>Casa em Salvador na beira da praia</h3>
+      <p class="preco">R$ 900/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    
+    <div class="result-item">
+      <img src="img/ap-rj.jpg" alt="Imóvel 2" />
+      <h3>Apartamento no Rio de Janeiro com vista para o mar</h3>
+      <p class="preco">R$ 1250/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <div class="result-item">
+      <img src="img/chacara-mg.jpg" alt="Imóvel 3" />
+      <h3>Casa de Praia em Minas Gerais com piscina</h3>
+      <p class="preco">R$ 950/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <div class="result-item">
+      <img src="img/kitnet-curitiba.jpg" alt="Imóvel 4" />
+      <h3>Kitnet em Curitiba completa e aconchegante</h3>
+      <p class="preco">R$ 200/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <!-- Linha 2 -->
+    <div class="result-item">
+      <img src="img/casa-nordeste.jpg" alt="Imóvel 5" />
+      <h3>Casa de Praia no interior do nordeste</h3>
+      <p class="preco">R$ 500/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <div class="result-item">
+      <img src="img/ap-salvador.jpg" alt="Imóvel 6" />
+      <h3>Apartamento em Salvador luxuoso com 4 dormitórios</h3>
+      <p class="preco">R$ 1550/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <div class="result-item">
+      <img src="img/chale-cdj.jpg" alt="Imóvel 7" />
+      <h3>Chalé em Campos do Jordão com duas suítes</h3>
+      <p class="preco">R$ 2330/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+    <div class="result-item">
+      <img src="img/ap-bh.jpg" alt="Imóvel 8" />
+      <h3>Apartamento em Belo Horizonte com piscina</h3>
+      <p class="preco">R$ 470/noite</p>
+      <a href="detalhes.html">Ver detalhes</a>
+    </div>
+  </section>
+  
+  <form action="/criar-anuncio" method="POST">
+    <label for="nome">Nome do Imóvel:</label>
+    <input type="text" id="nome" name="nome" required />
+    
+    <label for="localizacao">Localização:</label>
+    <input type="text" id="localizacao" name="localizacao" required />
+    
+    <label for="preco">Preço por noite:</label>
+    <input type="number" id="preco" name="preco" required />
+    
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" name="descricao"></textarea>
+    
+    <button type="submit">Publicar Anúncio</button>
+  </form>
+
+  <script>
+    // Detecta a rolagem da página
+    window.onscroll = function() {
+      shrinkHeader();
+    };
+  
+    function shrinkHeader() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        // Quando o usuário rola mais de 50px, a classe "shrink" é adicionada
+        header.classList.add('shrink');
+      } else {
+        // Quando o usuário está no topo da página, a classe "shrink" é removida
+        header.classList.remove('shrink');
+      }
+    }
+  </script>
+  
+
+</body>
+</html>
