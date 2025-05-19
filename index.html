@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="script.js">
 </head>
 <body>
-    
+
 
 
 <header style="position: fixed; top: 0; width: 100%; background-color: #ffffff; z-index: 100;">
@@ -23,10 +23,17 @@
       </div>
       
       <div class="actions">
-        <button onclick="window.location.href='login.html'">Entrar</button>
-        <button onclick="window.location.href='signup.html'">Cadastrar-se</button>
+        <button onclick="openPopup('login-form')">Entrar</button>
+        <button onclick="openPopup('signup-form')">Cadastrar-se</button>
         <button onclick="window.location.href='host.html'">Anuncie seu Espaço</button>
       </div>
+    </div>
+  </header>
+  <section class="results">
+    <!-- Conteúdo do Carrossel e Imóveis -->
+    <!-- O conteúdo dos imóveis vai aqui -->
+  </section>
+      
     </div>
   </header>
   <section class="results">
@@ -47,7 +54,7 @@
         <!-- Botão de navegação posterior -->
         <button class="next" onclick="moveSlide(1)">&#10095;</button>
       </div>
-      A
+      
       <h3>Casa em Salvador na beira da praia</h3>
       <p class="preco">R$ 900/noite</p>
       <a href="detalhes.html">Ver detalhes</a>
@@ -113,6 +120,8 @@
     
     <button type="submit">Publicar Anúncio</button>
   </form>
+
+
 
   <script>
     // Detecta a rolagem da página

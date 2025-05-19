@@ -1,21 +1,32 @@
-function moveSlide(button, direction) {
-    let carousel = button.parentElement.querySelector('.carousel-images');
-    let images = carousel.querySelectorAll('img');
-    let totalSlides = images.length;
-    let currentIndex = parseInt(carousel.getAttribute('data-index')) || 0;
+// Função para abrir o popup
+function openPopup(formType) {
+    const popup = document.getElementById('popup');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
 
-    currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
-    carousel.setAttribute('data-index', currentIndex);
+    // Exibe o popup
+    popup.style.display = 'flex';
 
-    // Ajuste para garantir que apenas uma imagem apareça por vez
-    let imageWidth = button.parentElement.clientWidth;
-    carousel.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
+    // Alterna entre o formulário de login e cadastro
+    if (formType === 'login') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+    } else if (formType === 'signup') {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+    }
 }
 
-// Garante que o carrossel inicie corretamente
-document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.carousel-images').forEach(carousel => {
-        carousel.setAttribute('data-index', 0);
-        carousel.style.transform = 'translateX(0)';
-    });
+// Função para fechar o popup
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+// Garante que o popup será fechado se o usuário clicar fora dele
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('popup');
+    if (event.target === popup) {
+        closePopup();
+    }
 });
