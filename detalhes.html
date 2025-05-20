@@ -1,31 +1,123 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva Já</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="script.js">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Casa Moderna no Centro</title>
+  <link rel="stylesheet" href="detalhes.css" />
 </head>
 <body>
 
-
-
-<header style="position: fixed; top: 0; width: 100%; background-color: #ffffff; z-index: 100;">
-    <div class="container">
+  <!-- Header fixo -->
+  <header>
+    <div class="container nav-container">
       <div class="logo">
-        <img src="logo.png" alt="Logo reserva ja" />
+        <a href="index.html"><img src="logo.png" alt="Logo Reserva Já"></a>
       </div>
-      
-      <div class="search-bar">
-        <input type="text" placeholder="Onde você quer ir?" />
-        <button><img class="lupa" src="image-removebg-preview.png" alt=""></button>
-      </div>
-      
       <div class="actions">
-        <button onclick="openPopup('login-form')">Entrar</button>
-        <button onclick="openPopup('signup-form')">Cadastrar-se</button>
-        <button onclick="window.location.href='host.html'">Anuncie seu Espaço</button>
+        <button>Entrar</button>
+        <button>Cadastre-se</button>
       </div>
     </div>
   </header>
+
+   
+    <section class="gallery">
+      <div class="slider">
+        <button class="nav left" onclick="changeSlide(-1)">&#10094;</button>
+        <img id="mainSlide" src="img/paulista1 (3).jpg" alt="Casa moderna">
+        <button class="nav right" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+    
+      <div class="thumbnails">
+        <img src="img/paulista1 (1).jpg" alt="Foto 1" onclick="setSlide(0)">
+        <img src="img/paulista1 (2).jpg" alt="Foto 2" onclick="setSlide(1)">
+        <img src="img/paulista1 (3).jpg" alt="Foto 3" onclick="setSlide(2)">
+        <img src="img/paulista1 (4).jpg" alt="Foto 4" onclick="setSlide(3)">
+        <img src="img/paulista1 (5).jpg" alt="Foto 5" onclick="setSlide(4)">
+        <img src="img/paulista1 (6).jpg" alt="Foto 6" onclick="setSlide(5)">
+      </div>
+    </section>
+    
+    <!-- Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
+    
+  <!-- Conteúdo principal -->
+  <main>
+    <section class="property-details">
+      <div class="description">
+        <h1>Stúdio moderno e aconchegante</h1>
+        <p>Localizado a 300 m do metrô Anhangabaú e a 500 m da estação República. Segurança 24h, piscina, academia e sala de reuniões disponíveis.</p>
+        <p><strong>Comodidades:</strong> Cozinha, Wi-Fi, Espaço de trabalho, TV, Elevador, Ar-condicionado, Pátio ou varanda, Lareira interna, Câmeras de segurança na parte externa da propriedade.</p>
+      </div>
+
+      <div class="booking">
+        <div class="price">
+          <p>R$ 300/noite</p>
+        </div>
+        <div class="dates">
+          <div><h6>check-in</h6></div>
+          <input type="date" id="check-in" placeholder="Check-in">
+          <div><h6>check-out</h6></div>
+          <input type="date" id="check-out" placeholder="Check-out">
+        </div>
+        <button id="reserve-btn">Reservar</button>
+      </div>
+    </section>
+  </main>
+  
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Reserva Já. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+<script>
+  const images = [
+    "img/paulista1 (1).jpg",
+    "img/paulista1 (2).jpg",
+    "img/paulista1 (3).jpg",
+    "img/paulista1 (4).jpg",
+    "img/paulista1 (5).jpg",
+    "img/paulista1 (6).jpg"
+  ];
+
+  let currentSlide = 0;
+
+  function changeSlide(n) {
+    currentSlide = (currentSlide + n + images.length) % images.length;
+    document.getElementById("mainSlide").src = images[currentSlide];
+  }
+
+  function setSlide(n) {
+    currentSlide = n;
+    document.getElementById("mainSlide").src = images[currentSlide];
+  }
+
+  // Modal
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+
+  document.getElementById("mainSlide").onclick = function () {
+    modal.style.display = "block";
+    modalImg.src = images[currentSlide];
+  };
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  // Fechar modal ao clicar fora da imagem
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
+</html>

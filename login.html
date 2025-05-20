@@ -1,30 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva Já</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva Já - Cadastro</title>
+  <link rel="stylesheet" href="stylelogin.css" />
 </head>
 <body>
-    
 
-
-<header style="position: fixed; top: 0; width: 100%; background-color: #ffffff; z-index: 100;">
-    <div class="container">
+  <!-- Header fixo -->
+  <header> 
+    <div class="topo"><div class="container header-container">
       <div class="logo">
-        <img src="logo.png" alt="Logo reserva ja" />
+        <img src="logo.png" alt="Logo Reserva Já" />
+        <div class="actions">
+        <a href="index.html"><button>voltar a página inicial</button></a>
       </div>
-      
-      <div class="search-bar">
-        <input type="text" placeholder="Onde você quer ir?" />
-        <button>Pesquisar</button>
-      </div>
-      
-      <div class="actions">
-        <button onclick="window.location.href='login.html'">Entrar</button>
-        <button onclick="window.location.href='signup.html'">Cadastrar-se</button>
-        <button onclick="window.location.href='host.html'">Anuncie seu Espaço</button>
+    </div> 
+  </div>
+  
+    
+  </header>
+
+  <!-- Conteúdo principal (formulário de cadastro) -->
+  <main>
+    <div class="form-wrapper">
+      <div class="form-container">
+        <img src="logo.png" alt="Logo Reserva Já" class="logo" />
+        <h2>Crie sua conta</h2>
+        <form id="signup-form">
+          <input type="email" id="email" placeholder="E-mail" required />
+          <input type="password" id="password" placeholder="Senha" required />
+          <button type="submit">Cadastrar</button>
+        </form>
+        <div class="social-login">
+          <button id="google-login">
+            <img src="img/icon-google.png" alt="Google" /> Entrar com Google
+          </button>
+          <button id="facebook-login">
+            <img src="img/icon-face.avif" alt="Facebook" /> Entrar com Facebook
+          </button>
+        </div>
+        <p>Já tem uma conta? <a href="#">Entrar</a></p>
       </div>
     </div>
-  </header>
+  </main>
+
+  <script> document.getElementById('signup-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert("Cadastro realizado com sucesso!");
+  });
+  
+  document.getElementById('google-login').addEventListener('click', () => {
+    alert('Redirecionando para login com Google...');
+  });
+  
+  document.getElementById('facebook-login').addEventListener('click', () => {
+    alert('Redirecionando para login com Facebook...');
+  });
+  </script>
+</body>
+</html>
