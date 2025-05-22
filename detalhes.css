@@ -274,3 +274,112 @@
     color: #bbb;
   }
   
+  @media (max-width: 1024px) {
+    .description {
+      width: 100%;
+    }
+  
+    .slider {
+      max-width: 100%;
+    }
+  
+    .nav.left, .nav.right {
+      padding: 8px;
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+  
+    .actions button {
+      margin: 5px 0 0 5px;
+    }
+  
+    .slider img {
+      max-height: 300px;
+    }
+  
+    .thumbnails img {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .description, .booking {
+      width: 100%;
+    }
+  
+    main {
+      padding: 20px 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      padding: 10px 0;
+    }
+  
+    .logo img {
+      max-height: 30px;
+    }
+  
+    .actions button {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+    }
+  
+    .description h1 {
+      font-size: 1.4rem;
+    }
+  
+    .description p, .price p {
+      font-size: 0.95rem;
+    }
+  
+    .dates input {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .modal-content {
+      max-width: 100%;
+      max-height: 80vh;
+    }
+  
+    .close {
+      font-size: 30px;
+      top: 20px;
+      right: 20px;
+    }
+  
+    .slider img {
+      max-height: 250px;
+    }
+  
+    .thumbnails {
+      gap: 5px;
+      padding: 0 10px;
+    }
+  
+    .thumbnails img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    #reserve-btn {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+  
